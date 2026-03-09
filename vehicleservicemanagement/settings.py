@@ -15,7 +15,8 @@ SECRET_KEY = 'ftxnh_7475z^joy_*l9t*qnqow!@)y#(541^w1=(8--=3g#4*d'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-"mechanics-booking-hzgbn13hj-rohonduttas-projects.vercel.app"
+"mechanics-booking-9xpiucv5r-rohonduttas-projects.vercel.app",
+".vercel.app"
 ]
 
 
