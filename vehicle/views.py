@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from django.db.models import Q
+from django.core.mail import send_mail
 
 def home_view(request):
     if request.user.is_authenticated:

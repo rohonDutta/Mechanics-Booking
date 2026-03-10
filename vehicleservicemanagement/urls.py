@@ -8,6 +8,7 @@ from vehicle import views
 from django.contrib.auth.views import LoginView, LogoutView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
@@ -89,7 +90,7 @@ urlpatterns = [
     path('customer-view-approved-request-invoice', views.customer_view_approved_request_invoice_view, name='customer-view-approved-request-invoice'),
 
     path('afterlogin', views.afterlogin_view, name='afterlogin'),
-    path('logout', LogoutView.as_view(template_name='vehicle/index.html'), name='logout'),
+    path('logout', auth_views.LogoutView.as_view(), name='logout'),
 
     path('aboutus', views.aboutus_view),
     path('contactus', views.contactus_view),
