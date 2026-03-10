@@ -3,3 +3,5 @@ django-widget-tweaks==1.4.8
 Pillow
 whitenoise
 gunicorn
+dj-database-url
+psycopg2-binary
