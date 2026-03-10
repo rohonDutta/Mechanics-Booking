@@ -1,5 +1,8 @@
+from dotenv import load_dotenv
 import os
 import dj_database_url
+
+load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
 
 # Build paths
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -109,6 +112,7 @@ MEDIA_ROOT = MEDIA_ROOT
 
 # Login redirect
 LOGIN_REDIRECT_URL = '/afterlogin'
+LOGOUT_REDIRECT_URL = '/'
 
 # Email settings
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
