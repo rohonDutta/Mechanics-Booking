@@ -18,7 +18,7 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "mechanics-booking-9xpiucv5r-rohonduttas-projects.vercel.app",
-    "https://mechanics-booking.onrender.com",
+    "mechanics-booking.onrender.com",
     ".vercel.app"
 ]
 
