@@ -34,11 +34,17 @@ class MechanicSalaryForm(forms.Form):
 
 
 class RequestForm(forms.ModelForm):
+    # Explicitly define as CharField to allow letters and numbers
+    vehicle_no = forms.CharField(
+        label="Vehicle Number",
+        widget=forms.TextInput(attrs={'placeholder': 'Vehicle Number'})
+    )
+
     class Meta:
-        model=models.Request
-        fields=['category','vehicle_no','vehicle_name','vehicle_model','vehicle_brand','problem_description']
+        model = models.Request
+        fields = ['category', 'vehicle_no', 'vehicle_name', 'vehicle_model', 'vehicle_brand', 'problem_description']
         widgets = {
-        'problem_description':forms.Textarea(attrs={'rows': 3, 'cols': 30})
+            'problem_description': forms.Textarea(attrs={'rows': 3, 'cols': 30})
         }
 
 class AdminRequestForm(forms.Form):
