@@ -12,7 +12,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 SECRET_KEY = 'ftxnh_7475z^joy_*l9t*qnqow!@)y#(541^w1=(8--=3g#4*d'
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "127.0.0.1",
@@ -67,9 +67,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'vehicleservicemanagement.wsgi.application'
 
-# Database (Neon PostgreSQL)
 DATABASES = {
     'default': dj_database_url.config(
+        default=os.getenv("DATABASE_URL"),
         conn_max_age=600,
         ssl_require=True
     )
