@@ -5,4 +5,8 @@ whitenoise
 gunicorn
 dj-database-url
 psycopg2-binary
+<<<<<<< HEAD
 python-dotenv
+=======
+python-dotenv
+>>>>>>> 34b84ca (auto create superuser)

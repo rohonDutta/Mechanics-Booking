@@ -2,15 +2,17 @@ from dotenv import load_dotenv
 import os
 import dj_database_url
 
-load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
-
-# Build paths
+# Load .env file
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+load_dotenv(os.path.join(BASE_DIR, '.env'))
+
+# Paths
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-SECRET_KEY = 'ftxnh_7475z^joy_*l9t*qnqow!@)y#(541^w1=(8--=3g#4*d'
+# Security
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 DEBUG = False
 
@@ -20,6 +22,12 @@ ALLOWED_HOSTS = [
     "mechanics-booking-9xpiucv5r-rohonduttas-projects.vercel.app",
     "mechanics-booking.onrender.com",
     ".vercel.app"
+]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://mechanics-booking.onrender.com"
 ]
 
 # Applications
@@ -107,22 +115,26 @@ STATICFILES_DIRS = [
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build')
 
-# Media files
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# Media
 MEDIA_URL = '/media/'
 MEDIA_ROOT = MEDIA_ROOT
 
-# Login redirect
+# Auth redirects
 LOGIN_REDIRECT_URL = '/afterlogin'
 LOGOUT_REDIRECT_URL = '/'
 
-# Email settings
+# Email settings (from .env)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'xyz@gmail.com'
-EMAIL_HOST_PASSWORD = 'xyz'
+EMAIL_HOST_USER = os.getenv("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = os.getenv("EMAIL_HOST_PASSWORD")
+
 EMAIL_RECEIVING_USER = ['rohondutta0@gmail.com']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
